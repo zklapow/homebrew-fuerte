@@ -1,3 +1,4 @@
+# Pulled from homebrew at 4ee175e
 require 'formula'
 
 class Mercurial < Formula

@@ -19,6 +19,8 @@ class Catkin < Formula
   # I am installing my own version of mercurial to apply a patch
   # see: http://mercurial.selenic.com/bts/issue3277
   depends_on 'ros/fuerte/mercurial' => :alt
+  depends_on 'em' => :python
+  depends_on 'ros/fuerte/boost' => :alt
 
   def install
     ENV.append 'PYTHON_PATH', ':/usr/local/lib/python2.7/site-packages/'
