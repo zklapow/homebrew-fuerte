@@ -24,8 +24,8 @@ class Qt < Formula
     ]
   end
 
-  depends_on "d-bus" if ARGV.include? '--with-qtdbus'
-  depends_on 'sqlite' if MacOS.leopard?
+  depends_on 'ros/fuerte/d-bus' => :alt if ARGV.include? '--with-qtdbus'
+  depends_on 'ros/fuerte/sqlite' => :alt if MacOS.leopard?
 
   def patches
     [
