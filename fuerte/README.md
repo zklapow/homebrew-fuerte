@@ -17,10 +17,8 @@
 
 8. Amend PYTHON_PATH with your ~/.bashrc:
 
-    echo 'export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python:$PYTHONPATH"' >> ~/.bashrc
-    source ~/.bashrc
-
-9. Install pysvn `brew tap install ros/fuerte/subversion --python`
+    `echo 'export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python:$PYTHONPATH"' >> ~/.bashrc`
+    `source ~/.bashrc`
 
 10. Install catkin `brew tap install ros/fuerte/catkin`
 
