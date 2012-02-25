@@ -10,26 +10,12 @@ class Catkin < Formula
     DATA
   end
 
-
-  depends_on 'ros/fuerte/swig-wx' => :alt
-  depends_on 'ros/fuerte/qt' => :alt
-  depends_on 'ros/fuerte/cmake' => :alt
-  depends_on 'rosinstall' => :python
-  depends_on 'ros/fuerte/pysvn' => :alt
-  # I am installing my own version of mercurial to apply a patch
-  # see: http://mercurial.selenic.com/bts/issue3277
-  depends_on 'ros/fuerte/mercurial' => :alt
   depends_on 'em' => :python
-  depends_on 'ros/fuerte/boost' => :alt
 
   def install
-    ENV.append 'PYTHON_PATH', ':/usr/local/lib/python2.7/site-packages/'
-    system "mkdir stacks"
-    system "cd stacks && rosinstall -n . ../test/test.rosinstall"
-    system "cd stacks && ln -s ../toplevel.cmake CMakeLists.txt"
+    ENV.universal_binary
     system "mkdir build"
-    system "cd build && cmake ../stacks #{std_cmake_parameters}"
-    system "cd build && make"
+    system "cd build && cmake .. #{std_cmake_parameters}"
     system "cd build && make install"
   end
 end

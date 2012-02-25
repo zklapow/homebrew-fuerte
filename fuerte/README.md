@@ -17,11 +17,37 @@
 
 8. Amend PYTHON_PATH with your ~/.bashrc:
 
-    `echo 'export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python:$PYTHONPATH"' >> ~/.bashrc`
-    `source ~/.bashrc`
+    echo 'export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python:$PYTHONPATH"' >> ~/.bashrc
+    source ~/.bashrc
 
 10. Install catkin `brew tap install ros/fuerte/catkin`
 
+11. Get the ROS source code:
+
+    rosinstall -n ~/ros 'https://raw.github.com/willowgarage/catkin/master/test/test.rosinstall'
+
+12. Remove the rx directory:
+
+    cd ~/ros
+    rm -rf rx
+
+13. Get the "toplevel" cmake file:
+
+    brew install wget
+    wget 'https://raw.github.com/willowgarage/catkin/master/toplevel.cmake' -O CMakeLists.txt
+
+14. Install dependencies:
+
+<<<<
+    rosdep install FINISH THIS
+>>>>
+
+15. Build ROS
+
+    mkdir build
+    cd build
+    cmake ..
+    make
 
 
 NOTES:
