@@ -28,6 +28,7 @@ Install PyYAML:
 
 Install rosinstall:
 
+    brew tap install ros/fuerte/mercurial ros/fuerte/pysvn
     sudo pip install -U rosinstall
 
 Amend PYTHON_PATH with your `~/.bashrc`:
@@ -53,9 +54,13 @@ Get the "toplevel" cmake file:
     brew install wget
     wget 'https://raw.github.com/willowgarage/catkin/master/toplevel.cmake' -O CMakeLists.txt
 
-Install dependencies:
+Install dependencies (to be replaced with rosdep2):
 
-    rosdep install FINISH THIS
+    brew tap install ros/fuerte/boost
+    brew tap install ros/fuerte/gtest
+    brew tap install ros/fuerte/log4cxx
+    brew tap install ros/fuerte/qt
+    brew tap install ros/fuerte/swig-wx
 
 Build ROS:
 
