@@ -66,10 +66,12 @@ Get the ROS source code:
 
     rosinstall -n --catkin ~/ros 'https://raw.github.com/willowgarage/catkin/master/test/test-nocatkin.rosinstall'
 
-#Remove the rx directory:
-#
-#    cd ~/ros
-#    rm -rf rx
+<!---
+Remove the rx directory:
+
+    cd ~/ros
+    rm -rf rx
+-->
 
 Install dependencies (to be replaced with rosdep2):
 
