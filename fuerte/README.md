@@ -75,6 +75,7 @@ Remove the rx directory:
 
 Install dependencies (to be replaced with rosdep2):
 
+    sudo pip install nose
     brew tap install ros/fuerte/cmake
     brew tap install ros/fuerte/boost
     brew tap install ros/fuerte/gtest
