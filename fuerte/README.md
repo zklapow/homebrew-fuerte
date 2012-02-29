@@ -2,6 +2,12 @@
 
 Install `command_line_tools_for_Xcode.dmg` from connect.apple.com OR Xcode from the app store
 
+Update your PATH and PYTHONPATH with your `~/.bashrc`:
+
+    echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bashrc
+    echo 'export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python:$PYTHONPATH"' >> ~/.bashrc
+    source ~/.bashrc
+
 Install Homebrew:
 
     /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
@@ -35,11 +41,6 @@ Install rosinstall:
     sudo pip install -U mercurial
     brew tap install ros/fuerte/pysvn
     sudo pip install -U rosinstall
-
-Amend PYTHON_PATH with your `~/.bashrc`:
-
-    echo 'export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python:$PYTHONPATH"' >> ~/.bashrc
-    source ~/.bashrc
 
 Install catkin:
 
