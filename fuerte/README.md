@@ -32,7 +32,8 @@ Install PyYAML:
 
 Install rosinstall:
 
-    brew tap install ros/fuerte/mercurial ros/fuerte/pysvn
+    sudo pip install -U mercurial
+    brew tap install ros/fuerte/pysvn
     sudo pip install -U rosinstall
 
 Amend PYTHON_PATH with your `~/.bashrc`:
