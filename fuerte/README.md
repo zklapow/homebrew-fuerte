@@ -14,6 +14,10 @@ Install the brew-tap external command:
 
     brew pull 6086
 
+Install the httparty ruby gem:
+
+    sudo gem install httparty
+
 Add the ros-dep brew tap:
 
     brew tap add ros-dep
