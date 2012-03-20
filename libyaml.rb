@@ -7,14 +7,14 @@ class Libyaml < Formula
 
   def options
     [
-      ["--universal", "Build for both 32 & 64 bit Intel."],
+      ["--no-universal", "Build for 32 bit Intel only."],
     ]
   end
 
   def install
     args = ["--prefix=#{prefix}"]
 
-    if ARGV.build_universal?
+    if not ARGV.build_no_universal?
       ENV['CFLAGS'] = "-arch i386 -arch x86_64"
       ENV['LDFLAGS'] = "-arch i386 -arch x86_64"
       args << "--disable-dependency-tracking"
