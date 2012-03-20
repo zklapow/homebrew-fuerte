@@ -20,13 +20,16 @@ Add the ros fuerte tap:
 
     brew tap ros/fuerte
 
+_Note: Ignore any warnings like this: Warning: Could not tap ros/fuerte/boost over mxcl/master/boost as rosdep will be explicitly installing the ros snapshot of formulae._
+
 Install pip:
 
     sudo easy_install pip
 
-Install PyYAML (rosinstall):
+Install libyaml and PyYAML (rosinstall):
 
-    sudo pip install PyYAML
+    brew install ros/fuerte/libyaml
+    sudo pip install --upgrade PyYAML
 
 Install mercurial (rosinstall):
 
