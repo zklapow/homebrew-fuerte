@@ -12,21 +12,13 @@ Install Homebrew:
 
     /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 
-Update Homebrew (this initializes the git repo):
+Update Homebrew:
 
     brew update
 
-Install the brew-tap external command:
+Add the ros fuerte tap:
 
-    brew pull 6086
-
-Install the httparty ruby gem:
-
-    sudo gem install httparty
-
-Add the ros-dep brew tap:
-
-    brew tap add ros-dep
+    brew tap ros/fuerte
 
 Install pip:
 
@@ -38,15 +30,11 @@ Install PyYAML (rosinstall):
 
 Install mercurial (rosinstall):
 
-    sudo pip install -U mercurial
-
-Install pysvn (rosinstall):
-
-    brew tap install ros/fuerte/pysvn
+    sudo pip install --upgrade mercurial
 
 Install rosinstall:
 
-    sudo pip install -U rosinstall
+    sudo pip install --upgrade rosinstall
 
 Install empy (catkin):
 
@@ -54,34 +42,11 @@ Install empy (catkin):
 
 Install catkin:
 
-    brew tap install ros/fuerte/catkin
-
-SVN Certificate workaround:
-
-    cd /tmp && svn co https://code.ros.org/svn/ros/stacks/ros_comm/trunk ros_comm
-
-Press p when prompted to accept the certificate.
+    brew install ros/fuerte/catkin
 
 Get the ROS source code:
 
     rosinstall -n --catkin ~/ros 'https://raw.github.com/willowgarage/catkin/master/test/test-nocatkin.rosinstall'
-
-<!---
-Remove the rx directory:
-
-    cd ~/ros
-    rm -rf rx
--->
-
-Install dependencies (to be replaced with rosdep2):
-
-    sudo pip install nose
-    brew tap install ros/fuerte/cmake
-    brew tap install ros/fuerte/boost
-    brew tap install ros/fuerte/gtest
-    brew tap install ros/fuerte/log4cxx
-    brew tap install ros/fuerte/qt
-    brew tap install ros/fuerte/swig-wx
 
 Build ROS:
 
