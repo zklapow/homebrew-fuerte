@@ -47,6 +47,12 @@ Install catkin:
 
     brew install ros/fuerte/catkin
 
+Workaround the svn certificate error:
+
+    svn co https://code.ros.org/svn/ros/stacks/ros_comm/trunk /tmp/ros_comm
+
+_Accept the certificate by pressing `p` and then cancel the co with ctrl-c._
+
 Get the ROS source code:
 
     rosinstall -n --catkin ~/ros 'https://raw.github.com/willowgarage/catkin/master/test/test-nocatkin.rosinstall'
