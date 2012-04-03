@@ -39,7 +39,7 @@ _Note: in the future you will be able to install from pip (currently broken) wit
 
 Install rosinstall:
 
-    sudo pip install --upgrade rosinstall
+    sudo pip install --upgrade rosinstall vcstools
 
 Install empy (catkin):
 
