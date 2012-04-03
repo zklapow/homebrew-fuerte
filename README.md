@@ -53,11 +53,18 @@ Workaround the svn certificate error:
 
     svn co https://code.ros.org/svn/ros/stacks/ros_comm/trunk /tmp/ros_comm
 
-_Accept the certificate by pressing `p` and then cancel the co with ctrl-c._
+_Accept the certificate by pressing `p` and then cancel the co with `ctrl-c`._
 
 Get the ROS source code:
 
     rosinstall -n --catkin ~/ros 'https://raw.github.com/willowgarage/catkin/master/test/test-nocatkin.rosinstall'
+
+Resolve catkin based ROS dependencies (to be replaced by rosdep?):
+
+    brew install ros/fuerte/boost
+    brew install ros/fuerte/gtest
+    brew install ros/fuerte/log4cxx
+    brew install ros/fuerte/qt
 
 Build ROS:
 
