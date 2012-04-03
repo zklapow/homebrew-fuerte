@@ -33,7 +33,9 @@ Install libyaml and PyYAML (rosinstall):
 
 Install mercurial (rosinstall):
 
-    sudo pip install --upgrade mercurial
+    brew install ros/fuerte/mercurial
+
+_Note: in the future you will be able to install from pip (currently broken) with `sudo pip install --upgrade mercurial`_
 
 Install rosinstall:
 
