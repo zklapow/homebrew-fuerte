@@ -41,9 +41,9 @@ Install rosinstall:
 
     sudo pip install --upgrade rosinstall vcstools
 
-Install empy (catkin):
+Install empy and nose (catkin):
 
-    sudo pip install --upgrade empy
+    sudo pip install --upgrade empy nose
 
 Install catkin:
 
