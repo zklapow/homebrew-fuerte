@@ -43,7 +43,7 @@ Install rosinstall:
 
 Install empy (catkin):
 
-    sudo pip install empy
+    sudo pip install --upgrade empy
 
 Install catkin:
 
