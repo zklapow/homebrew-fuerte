@@ -6,7 +6,7 @@ class SwigWx < Formula
   md5 'edd2f143ff51295f9ffa7e1f9ecab358'
   version '1.3.29'
 
-  keg_only "Only used in building catkin stuff"
+  #keg_only "Only used in building catkin stuff"
 
   def install
     ENV.universal_binary
