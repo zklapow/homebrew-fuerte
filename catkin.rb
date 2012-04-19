@@ -6,7 +6,7 @@ class Catkin < Formula
   homepage 'http://www.ros.org/wiki/catkin'
   version '0.3.28'
 
-  depends_on LanguageModuleDependency.new :python, PyYAML, yaml
+  depends_on LanguageModuleDependency.new :python, 'PyYAML', 'yaml'
   depends_on 'setuptools' => :python
   depends_on 'cmake'
   depends_on 'EmPy' => :python

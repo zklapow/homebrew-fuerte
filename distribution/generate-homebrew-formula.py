@@ -109,7 +109,7 @@ end
             if installer == 'pip':
                 # Look for special import test keys
                 if resolved in pipkey_to_importtest_map:
-                    depends_def += "  depends_on LanguageModuleDependency.new :python, %s, %s\n"%(resolved, pipkey_to_importtest_map[resolved])
+                    depends_def += "  depends_on LanguageModuleDependency.new :python, '%s', '%s'\n"%(resolved, pipkey_to_importtest_map[resolved])
                 else:
                     depends_def += "  depends_on '%s' => :python\n"%resolved
                 pip_requirements += resolved+'\n'
