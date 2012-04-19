@@ -1,17 +1,17 @@
+
 require 'formula'
 
-class SwigWx < Formula
-  url 'https://github.com/wg-debs/swig-wx/tarball/debian/ros_fuerte_1.3.29_oneiric'
-  homepage 'http://ros.org/wiki/wxswig'
-  md5 'edd2f143ff51295f9ffa7e1f9ecab358'
+class Swig-wx < Formula
+  url 'git://github.com/wg-debs/swig-wx.git', {:using => :git, :tag => 'upstream/1.3.29'}
+  homepage 'http://www.swig.org'
   version '1.3.29'
 
-  #keg_only "Only used in building catkin stuff"
+
 
   def install
     ENV.universal_binary
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
-    system "make install"
+    system "mkdir build"
+    system "cd build && cmake .. #{std_cmake_parameters}"
+    system "cd build && make install"
   end
 end
