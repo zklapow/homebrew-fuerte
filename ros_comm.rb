@@ -1,4 +1,3 @@
-
 require 'formula'
 
 class RosComm < Formula
@@ -6,7 +5,7 @@ class RosComm < Formula
   homepage 'http://www.ros.org'
   version '1.8.7'
 
-  depends_on 'PyYAML' => :python
+  depends_on LanguageModuleDependency.new :python, 'PyYAML', 'yaml'
   depends_on 'ros/fuerte/genmsg' => :alt
   depends_on 'ros/fuerte/catkin' => :alt
   depends_on 'ros/fuerte/roscpp_core' => :alt
