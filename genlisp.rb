@@ -1,4 +1,3 @@
-
 require 'formula'
 
 class Genlisp < Formula
@@ -15,7 +14,7 @@ class Genlisp < Formula
     ENV.universal_binary
     system "mkdir build"
     system "cd build && cmake .. #{std_cmake_parameters}"
-    system "mkdir #{prefix}/lib/python2.7/site-packages/"
+    system "mkdir -p #{prefix}/lib/python2.7/site-packages/"
     system "cd build && make install"
   end
 
