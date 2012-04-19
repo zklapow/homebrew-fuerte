@@ -6,7 +6,7 @@ class Catkin < Formula
   homepage 'http://www.ros.org/wiki/catkin'
   version '0.3.28'
 
-  depends_on 'PyYAML' => :python
+  depends_on LanguageModuleDependency.new :python, PyYAML, yaml
   depends_on 'setuptools' => :python
   depends_on 'cmake'
   depends_on 'EmPy' => :python
@@ -15,10 +15,12 @@ class Catkin < Formula
   depends_on 'nose' => :python
 
 
+
   def install
     ENV.universal_binary
     system "mkdir build"
     system "cd build && cmake .. #{std_cmake_parameters}"
     system "cd build && make install"
   end
+
 end

@@ -1,11 +1,12 @@
 
 require 'formula'
 
-class Genmsg < Formula
-  url 'git://github.com/wg-debs/genmsg.git', {:using => :git, :tag => 'upstream/0.3.4'}
-  homepage 'http://www.ros.org/wiki/genmsg'
+class Ecto < Formula
+  url 'git://github.com/wg-debs/ecto-release.git', {:using => :git, :tag => 'upstream/0.3.4'}
+  homepage 'http://ecto.willowgarage.com'
   version '0.3.4'
 
+  depends_on 'boost'
   depends_on 'ros/fuerte/catkin' => :alt
 
 

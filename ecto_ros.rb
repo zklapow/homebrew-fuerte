@@ -1,16 +1,16 @@
 
 require 'formula'
 
-class CommonMsgs < Formula
-  url 'git://github.com/wg-debs/common_msgs.git', {:using => :git, :tag => 'upstream/1.8.3'}
-  homepage 'http://www.ros.org'
-  version '1.8.3'
+class EctoRos < Formula
+  url 'git://github.com/wg-debs/ecto_ros-release.git', {:using => :git, :tag => 'upstream/0.3.1'}
+  homepage 'http://ecto.willowgarage.com/recognition'
+  version '0.3.1'
 
   depends_on 'ros/fuerte/std_msgs' => :alt
-  depends_on 'ros/fuerte/langs' => :alt
-  depends_on 'ros/fuerte/genmsg' => :alt
+  depends_on 'ros/fuerte/ecto' => :alt
   depends_on 'ros/fuerte/catkin' => :alt
   depends_on 'ros/fuerte/ros_comm' => :alt
+  depends_on 'ros/fuerte/common_msgs' => :alt
 
 
 

@@ -1,10 +1,10 @@
 
 require 'formula'
 
-class Octomap < Formula
-  url 'git://github.com/ahornung/octomap.git', {:using => :git, :tag => 'upstream/1.4.1'}
-  homepage 'http://octomap.sourceforge.net/'
-  version '1.4.1'
+class Libccd < Formula
+  url 'git://github.com/wg-debs/libccd.git', {:using => :git, :tag => 'upstream/1.2.0'}
+  homepage 'http://libccd.danfis.cz/'
+  version '1.2.0'
 
   depends_on 'cmake'
 

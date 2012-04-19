@@ -1,12 +1,14 @@
 
 require 'formula'
 
-class Genpy < Formula
-  url 'git://github.com/wg-debs/genpy.git', {:using => :git, :tag => 'upstream/0.3.3'}
-  homepage 'http://www.ros.org/wiki/genpy'
+class EctoOpencv < Formula
+  url 'git://github.com/wg-debs/ecto_opencv-release.git', {:using => :git, :tag => 'upstream/0.3.3'}
+  homepage 'http://ecto.willowgarage.com'
   version '0.3.3'
 
-  depends_on 'ros/fuerte/genmsg' => :alt
+  depends_on 'opencv'
+  depends_on 'boost'
+  depends_on 'ros/fuerte/ecto' => :alt
   depends_on 'ros/fuerte/catkin' => :alt
 
 

@@ -6,7 +6,7 @@ class RosComm < Formula
   homepage 'http://www.ros.org'
   version '1.8.7'
 
-  depends_on 'PyYAML' => :python
+  depends_on LanguageModuleDependency.new :python, PyYAML, yaml
   depends_on 'ros/fuerte/genmsg' => :alt
   depends_on 'ros/fuerte/catkin' => :alt
   depends_on 'ros/fuerte/roscpp_core' => :alt
@@ -17,10 +17,12 @@ class RosComm < Formula
   depends_on 'log4cxx'
 
 
+
   def install
     ENV.universal_binary
     system "mkdir build"
     system "cd build && cmake .. #{std_cmake_parameters}"
     system "cd build && make install"
   end
+
 end

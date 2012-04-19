@@ -49,6 +49,22 @@ def generate_deps(ros_distro, rosdep_keys):
         deps.append((installer_key, resolution))
     return deps
 
+special_installs = {}
+special_installs['genlisp'] = \
+'''
+  def install
+    ENV.universal_binary
+    system "mkdir build"
+    system "cd build && cmake .. #{std_cmake_parameters}"
+    system "mkdir #{prefix}/lib/python2.7/site-packages/"
+    system "cd build && make install"
+  end
+'''
+
+pipkey_to_importtest_map = {}
+pipkey_to_importtest_map['PyYAML'] = 'yaml'
+pipkey_to_importtest_map['empy'] = 'em'
+
 def generate_brew(stack_yaml, repo_url, ros_distro):
     # Homebrew Formula Template
     template = \
@@ -62,12 +78,7 @@ class %(formula_class_name)s < Formula
 
 %(depends_def)s
 
-  def install
-    ENV.universal_binary
-    system "mkdir build"
-    system "cd build && cmake .. #{std_cmake_parameters}"
-    system "cd build && make install"
-  end
+%(install)s
 end
 '''
     # Get the output file name
@@ -96,7 +107,11 @@ end
         for resolved in resolutions:
             # If it is pip
             if installer == 'pip':
-                depends_def += "  depends_on '%s' => :python\n"%resolved
+                # Look for special import test keys
+                if resolved in pipkey_to_importtest_map:
+                    depends_def += "  depends_on LanguageModuleDependency.new :python, %s, %s\n"%(resolved, pipkey_to_importtest_map[resolved])
+                else:
+                    depends_def += "  depends_on '%s' => :python\n"%resolved
                 pip_requirements += resolved+'\n'
                 continue
             # If it is homebrew
@@ -107,6 +122,19 @@ end
                     continue
                 depends_def += "  depends_on '%s'\n"%resolved
     template_vars['depends_def'] = depends_def
+    # Look for special install instructions
+    if file_name in special_installs:
+        template_vars['install'] = special_installs[file_name]
+    else:
+        template_vars['install'] = \
+'''
+  def install
+    ENV.universal_binary
+    system "mkdir build"
+    system "cd build && cmake .. #{std_cmake_parameters}"
+    system "cd build && make install"
+  end
+'''
     # Fill out the template
     formula = template%template_vars
     # Write the formula to file

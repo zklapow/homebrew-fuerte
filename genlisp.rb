@@ -10,10 +10,13 @@ class Genlisp < Formula
   depends_on 'ros/fuerte/catkin' => :alt
 
 
+
   def install
     ENV.universal_binary
     system "mkdir build"
     system "cd build && cmake .. #{std_cmake_parameters}"
+    system "mkdir #{prefix}/lib/python2.7/site-packages/"
     system "cd build && make install"
   end
+
 end

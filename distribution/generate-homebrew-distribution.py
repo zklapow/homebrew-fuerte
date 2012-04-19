@@ -137,11 +137,20 @@ def process_repos(gbp_yaml, args):
     #  * (binary)Create a homebrew bottle
     repos = gbp_yaml['gbp-repos']
     make_directory(os.path.join(args.working, 'repos'))
+    make_directory(os.path.join(args.working, 'dist'))
     successes = []
     errors = {}
     for repo in repos:
         try:
-            process_repo(repo, ros_distro, os.path.join(args.working, 'repos'), args.build_binary, args.redo)
+            repo_dir = os.path.join(args.working, 'repos')
+            process_repo(repo, ros_distro, repo_dir, args.build_binary, args.redo)
+            # Copy the files up the top level
+            from shutil import copy
+            dist_dir = os.path.join(args.working, 'dist')
+            copy(os.path.join(repo_dir, repo['name'], repo['name']+'.rb'), dist_dir)
+            pip_file = os.path.join(repo_dir, repo['name'], repo['name']+'_pip_requirements.txt')
+            if os.path.exists(pip_file):
+                copy(pip_file, dist_dir)
         except Exception as e:
             print("  [%s] Error occurred while processing: "%repo['name'])
             import traceback

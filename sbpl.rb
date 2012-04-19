@@ -1,11 +1,12 @@
 
 require 'formula'
 
-class Octomap < Formula
-  url 'git://github.com/ahornung/octomap.git', {:using => :git, :tag => 'upstream/1.4.1'}
-  homepage 'http://octomap.sourceforge.net/'
-  version '1.4.1'
+class Sbpl < Formula
+  url 'git://github.com/wg-debs/sbpl.git', {:using => :git, :tag => 'upstream/1.0.5'}
+  homepage 'http://www.ros.org'
+  version '1.0.5'
 
+  depends_on 'ros/fuerte/catkin' => :alt
   depends_on 'cmake'
 
 
