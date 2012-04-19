@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+
+"""
+An example of how to use this:
+generate-homebrew-distribution.py --working /path/to/working_dir --gbp-repo-file https://raw.github.com/ros/rosdistro/master/releases/fuerte.yaml --resume-on-error
+"""
+
 from __future__ import print_function
 
 import os
