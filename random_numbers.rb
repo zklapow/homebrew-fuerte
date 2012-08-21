@@ -1,10 +1,10 @@
 
 require 'formula'
 
-class Ecto < Formula
-  url 'git://github.com/wg-debs/ecto-release.git', {:using => :git, :tag => 'upstream/0.4.0'}
-  homepage 'http://ecto.willowgarage.com'
-  version '0.4.0'
+class RandomNumbers < Formula
+  url 'git://github.com/wg-debs/random_numbers-release.git', {:using => :git, :tag => 'upstream/0.1.1'}
+  homepage 'http://ros.org/wiki/random_numbers'
+  version '0.1.1'
 
   depends_on 'boost'
 

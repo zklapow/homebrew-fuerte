@@ -1,10 +1,10 @@
 
 require 'formula'
 
-class Ecto < Formula
-  url 'git://github.com/wg-debs/ecto-release.git', {:using => :git, :tag => 'upstream/0.4.0'}
-  homepage 'http://ecto.willowgarage.com'
-  version '0.4.0'
+class ConsoleBridge < Formula
+  url 'git://github.com/wg-debs/console_bridge.git', {:using => :git, :tag => 'upstream/0.1.2'}
+  homepage 'https://kforge.ros.org/projects/console_bridge/'
+  version '0.1.2'
 
   depends_on 'boost'
 

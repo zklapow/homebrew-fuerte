@@ -2,11 +2,10 @@
 require 'formula'
 
 class Libccd < Formula
-  url 'git://github.com/wg-debs/libccd.git', {:using => :git, :tag => 'upstream/1.2.0'}
+  url 'git://github.com/wg-debs/libccd.git', {:using => :git, :tag => 'upstream/1.4.0'}
   homepage 'http://libccd.danfis.cz/'
-  version '1.2.0'
+  version '1.4.0'
 
-  depends_on 'cmake'
 
 
 

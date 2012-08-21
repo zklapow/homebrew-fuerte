@@ -6,10 +6,8 @@ class Fcl < Formula
   homepage 'https://kforge.ros.org/projects/fcl/'
   version '0.1.2'
 
-  depends_on 'pkg-config'
-  depends_on 'cmake'
-  depends_on 'ros/fuerte/flann' => :alt
-  depends_on 'ros/fuerte/libccd' => :alt
+  depends_on 'zklapow/fuerte/flann' => :alt
+  depends_on 'zklapow/fuerte/libccd' => :alt
 
 
 

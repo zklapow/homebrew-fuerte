@@ -2,12 +2,12 @@
 require 'formula'
 
 class RoscppCore < Formula
-  url 'git://github.com/wg-debs/roscpp_core.git', {:using => :git, :tag => 'upstream/0.2.3'}
+  url 'git://github.com/wg-debs/roscpp_core-release.git', {:using => :git, :tag => 'upstream/0.2.6'}
   homepage 'http://www.ros.org/wiki/roscpp_core'
-  version '0.2.3'
+  version '0.2.6'
 
-  depends_on 'ros/fuerte/genmsg' => :alt
   depends_on 'boost'
+  depends_on 'zklapow/fuerte/ros' => :alt
 
 
 

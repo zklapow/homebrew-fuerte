@@ -2,15 +2,13 @@
 require 'formula'
 
 class CommonMsgs < Formula
-  url 'git://github.com/wg-debs/common_msgs.git', {:using => :git, :tag => 'upstream/1.8.3'}
-  homepage 'http://www.ros.org'
-  version '1.8.3'
+  url 'git://github.com/wg-debs/common_msgs-release.git', {:using => :git, :tag => 'upstream/1.8.13'}
+  homepage 'http://www.ros.org/wiki/common_msgs'
+  version '1.8.13'
 
-  depends_on 'ros/fuerte/std_msgs' => :alt
-  depends_on 'ros/fuerte/langs' => :alt
-  depends_on 'ros/fuerte/genmsg' => :alt
-  depends_on 'ros/fuerte/catkin' => :alt
-  depends_on 'ros/fuerte/ros_comm' => :alt
+  depends_on 'boost'
+  depends_on 'zklapow/fuerte/langs' => :alt
+  depends_on 'zklapow/fuerte/std_msgs' => :alt
 
 
 

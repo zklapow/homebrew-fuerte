@@ -1,12 +1,12 @@
+
 require 'formula'
 
 class Genlisp < Formula
-  url 'git://github.com/wg-debs/genlisp-release.git', {:using => :git, :tag => 'upstream/0.3.0'}
+  url 'git://github.com/wg-debs/genlisp-release.git', {:using => :git, :tag => 'upstream/0.3.3'}
   homepage 'http://www.ros.org/wiki/roslisp'
-  version '0.3.0'
+  version '0.3.3'
 
-  depends_on 'ros/fuerte/genmsg' => :alt
-  depends_on 'ros/fuerte/catkin' => :alt
+  depends_on 'zklapow/fuerte/genmsg' => :alt
 
 
 
@@ -14,7 +14,7 @@ class Genlisp < Formula
     ENV.universal_binary
     system "mkdir build"
     system "cd build && cmake .. #{std_cmake_parameters}"
-    system "mkdir -p #{prefix}/lib/python2.7/site-packages/"
+    system "mkdir #{prefix}/lib/python2.7/site-packages/"
     system "cd build && make install"
   end
 

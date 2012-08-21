@@ -1,10 +1,10 @@
 
 require 'formula'
 
-class Ecto < Formula
-  url 'git://github.com/wg-debs/ecto-release.git', {:using => :git, :tag => 'upstream/0.4.0'}
-  homepage 'http://ecto.willowgarage.com'
-  version '0.4.0'
+class UrdfdomHeaders < Formula
+  url 'git://github.com/wg-debs/urdfdom_headers-release.git', {:using => :git, :tag => 'upstream/0.2.0'}
+  homepage 'http://www.ros.org/wiki/urdf'
+  version '0.2.0'
 
   depends_on 'boost'
 

@@ -1,10 +1,10 @@
 
 require 'formula'
 
-class Ecto < Formula
-  url 'git://github.com/wg-debs/ecto-release.git', {:using => :git, :tag => 'upstream/0.4.0'}
-  homepage 'http://ecto.willowgarage.com'
-  version '0.4.0'
+class Flirtlib < Formula
+  url 'git://github.com/wg-debs/flirtlib-release.git', {:using => :git, :tag => 'upstream/0.1.5'}
+  homepage 'http://www.informatik.uni-freiburg.de/~tipaldi/homepage.html'
+  version '0.1.5'
 
   depends_on 'boost'
 

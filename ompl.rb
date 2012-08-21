@@ -2,13 +2,11 @@
 require 'formula'
 
 class Ompl < Formula
-  url 'git://github.com/wg-debs/ompl.git', {:using => :git, :tag => 'upstream/0.10.2001850'}
+  url 'git://github.com/wg-debs/ompl.git', {:using => :git, :tag => 'upstream/0.11.1002045'}
   homepage 'http://ompl.kavrakilab.org'
-  version '0.10.2001850'
+  version '0.11.1002045'
 
   depends_on 'boost'
-  depends_on 'gtest'
-  depends_on 'cmake'
 
 
 

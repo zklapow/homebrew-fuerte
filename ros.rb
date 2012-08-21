@@ -2,17 +2,16 @@
 require 'formula'
 
 class Ros < Formula
-  url 'git://github.com/wg-debs/ros.git', {:using => :git, :tag => 'upstream/1.8.4'}
-  homepage 'http://www.ros.org'
-  version '1.8.4'
+  url 'git://github.com/wg-debs/ros-release.git', {:using => :git, :tag => 'upstream/1.8.10'}
+  homepage 'http://www.ros.org/wiki/ROS'
+  version '1.8.10'
 
-  depends_on 'ros/fuerte/rospack' => :alt
-  depends_on 'rospkg' => :python
+  depends_on 'boost'
+  depends_on 'zklapow/fuerte/catkin' => :alt
   depends_on 'gtest'
   depends_on 'nose' => :python
-  depends_on 'ros/fuerte/catkin' => :alt
-  depends_on 'boost'
-  depends_on 'pkg-config'
+  depends_on 'rospkg' => :python
+  depends_on 'zklapow/fuerte/rospack' => :alt
 
 
 

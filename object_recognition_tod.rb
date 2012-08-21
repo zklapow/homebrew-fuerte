@@ -1,15 +1,14 @@
 
 require 'formula'
 
-class EctoPcl < Formula
-  url 'git://github.com/wg-debs/ecto_pcl-release.git', {:using => :git, :tag => 'upstream/0.3.5'}
+class ObjectRecognitionTod < Formula
+  url 'git://github.com/wg-debs/object_recognition_tod-release.git', {:using => :git, :tag => 'upstream/0.4.2'}
   homepage 'http://ecto.willowgarage.com'
-  version '0.3.5'
+  version '0.4.2'
 
-  depends_on 'boost'
   depends_on 'zklapow/fuerte/ecto' => :alt
-  depends_on 'zklapow/fuerte/ecto_ros' => :alt
-  depends_on 'zklapow/fuerte/pcl' => :alt
+  depends_on 'zklapow/fuerte/ecto_opencv' => :alt
+  depends_on 'zklapow/fuerte/object_recognition_core' => :alt
 
 
 

@@ -2,11 +2,10 @@
 require 'formula'
 
 class Genmsg < Formula
-  url 'git://github.com/wg-debs/genmsg.git', {:using => :git, :tag => 'upstream/0.3.4'}
+  url 'git://github.com/wg-debs/genmsg-release.git', {:using => :git, :tag => 'upstream/0.3.10'}
   homepage 'http://www.ros.org/wiki/genmsg'
-  version '0.3.4'
+  version '0.3.10'
 
-  depends_on 'ros/fuerte/catkin' => :alt
 
 
 

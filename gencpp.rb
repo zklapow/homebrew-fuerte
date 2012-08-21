@@ -2,12 +2,11 @@
 require 'formula'
 
 class Gencpp < Formula
-  url 'git://github.com/wg-debs/gencpp.git', {:using => :git, :tag => 'upstream/0.3.0'}
+  url 'git://github.com/wg-debs/gencpp-release.git', {:using => :git, :tag => 'upstream/0.3.4'}
   homepage 'http://www.ros.org/wiki/roscpp'
-  version '0.3.0'
+  version '0.3.4'
 
-  depends_on 'ros/fuerte/genmsg' => :alt
-  depends_on 'ros/fuerte/catkin' => :alt
+  depends_on 'zklapow/fuerte/genmsg' => :alt
 
 
 

@@ -2,12 +2,11 @@
 require 'formula'
 
 class Sbpl < Formula
-  url 'git://github.com/wg-debs/sbpl.git', {:using => :git, :tag => 'upstream/1.0.5'}
+  url 'git://github.com/wg-debs/sbpl.git', {:using => :git, :tag => 'upstream/1.1.2'}
   homepage 'http://www.ros.org'
-  version '1.0.5'
+  version '1.1.2'
 
-  depends_on 'ros/fuerte/catkin' => :alt
-  depends_on 'cmake'
+  depends_on 'zklapow/fuerte/ros_comm' => :alt
 
 
 

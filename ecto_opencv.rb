@@ -2,14 +2,13 @@
 require 'formula'
 
 class EctoOpencv < Formula
-  url 'git://github.com/wg-debs/ecto_opencv-release.git', {:using => :git, :tag => 'upstream/0.3.3'}
+  url 'git://github.com/wg-debs/ecto_opencv-release.git', {:using => :git, :tag => 'upstream/0.4.1'}
   homepage 'http://ecto.willowgarage.com'
-  version '0.3.3'
+  version '0.4.1'
 
-  depends_on 'opencv'
   depends_on 'boost'
-  depends_on 'ros/fuerte/ecto' => :alt
-  depends_on 'ros/fuerte/catkin' => :alt
+  depends_on 'zklapow/fuerte/ecto' => :alt
+  depends_on 'opencv'
 
 
 

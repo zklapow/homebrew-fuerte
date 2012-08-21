@@ -2,15 +2,16 @@
 require 'formula'
 
 class EctoRos < Formula
-  url 'git://github.com/wg-debs/ecto_ros-release.git', {:using => :git, :tag => 'upstream/0.3.1'}
+  url 'git://github.com/wg-debs/ecto_ros-release.git', {:using => :git, :tag => 'upstream/0.3.12'}
   homepage 'http://ecto.willowgarage.com/recognition'
-  version '0.3.1'
+  version '0.3.12'
 
-  depends_on 'ros/fuerte/std_msgs' => :alt
-  depends_on 'ros/fuerte/ecto' => :alt
-  depends_on 'ros/fuerte/catkin' => :alt
-  depends_on 'ros/fuerte/ros_comm' => :alt
-  depends_on 'ros/fuerte/common_msgs' => :alt
+  depends_on 'zklapow/fuerte/common_msgs' => :alt
+  depends_on 'zklapow/fuerte/ecto' => :alt
+  depends_on 'eigen'
+  depends_on 'opencv'
+  depends_on 'zklapow/fuerte/ros_comm' => :alt
+  depends_on 'zklapow/fuerte/std_msgs' => :alt
 
 
 

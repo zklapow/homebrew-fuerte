@@ -2,16 +2,16 @@
 require 'formula'
 
 class EctoImagePipeline < Formula
-  url 'git://github.com/wg-debs/ecto_image_pipeline-release.git', {:using => :git, :tag => 'upstream/0.3.2'}
+  url 'git://github.com/wg-debs/ecto_image_pipeline-release.git', {:using => :git, :tag => 'upstream/0.4.1'}
   homepage 'http://ecto.willowgarage.com'
-  version '0.3.2'
+  version '0.4.1'
 
-  depends_on 'ros/fuerte/catkin' => :alt
-  depends_on 'opencv'
-  depends_on 'ros/fuerte/pcl' => :alt
-  depends_on 'ros/fuerte/libg2o' => :alt
-  depends_on 'ros/fuerte/ecto' => :alt
   depends_on 'boost'
+  depends_on 'zklapow/fuerte/ecto' => :alt
+  depends_on 'zklapow/fuerte/ecto_opencv' => :alt
+  depends_on 'zklapow/fuerte/libg2o' => :alt
+  depends_on 'opencv'
+  depends_on 'zklapow/fuerte/pcl' => :alt
 
 
 

@@ -2,15 +2,13 @@
 require 'formula'
 
 class Langs < Formula
-  url 'git://github.com/wg-debs/langs.git', {:using => :git, :tag => 'upstream/0.3.1'}
+  url 'git://github.com/wg-debs/langs-release.git', {:using => :git, :tag => 'upstream/0.3.5'}
   homepage 'http://www.ros.org'
-  version '0.3.1'
+  version '0.3.5'
 
-  depends_on 'ros/fuerte/genlisp' => :alt
-  depends_on 'ros/fuerte/genpy' => :alt
-  depends_on 'ros/fuerte/genmsg' => :alt
-  depends_on 'ros/fuerte/catkin' => :alt
-  depends_on 'ros/fuerte/gencpp' => :alt
+  depends_on 'zklapow/fuerte/catkin' => :alt
+  depends_on 'zklapow/fuerte/roscpp_core' => :alt
+  depends_on 'zklapow/fuerte/langs-dev' => :alt
 
 
 

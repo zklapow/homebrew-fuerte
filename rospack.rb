@@ -2,13 +2,12 @@
 require 'formula'
 
 class Rospack < Formula
-  url 'git://github.com/wg-debs/rospack.git', {:using => :git, :tag => 'upstream/2.0.12'}
-  homepage 'http://www.ros.org'
-  version '2.0.12'
+  url 'git://github.com/wg-debs/rospack-release.git', {:using => :git, :tag => 'upstream/2.0.13'}
+  homepage 'http://www.ros.org/wiki/rospack'
+  version '2.0.13'
 
   depends_on 'boost'
   depends_on 'gtest'
-  depends_on 'ros/fuerte/catkin' => :alt
 
 
 

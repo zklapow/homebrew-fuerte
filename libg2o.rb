@@ -2,13 +2,12 @@
 require 'formula'
 
 class Libg2o < Formula
-  url 'git://github.com/wg-debs/libg2o-release.git', {:using => :git, :tag => 'upstream/26.0.1'}
+  url 'git://github.com/wg-debs/libg2o-release.git', {:using => :git, :tag => 'upstream/0.0.26'}
   homepage 'https://openslam.informatik.uni-freiburg.de/data/svn/g2o/trunk/'
-  version '26.0.1'
+  version '0.0.26'
 
-  depends_on 'suite-sparse'
-  depends_on 'cmake'
   depends_on 'eigen'
+  depends_on 'suite-sparse'
 
 
 

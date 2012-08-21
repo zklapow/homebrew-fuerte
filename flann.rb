@@ -6,10 +6,9 @@ class Flann < Formula
   homepage 'http://people.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN'
   version '1.7.1'
 
-  depends_on 'cmake'
-  depends_on 'numpy' => :python
-  depends_on 'gtest'
   depends_on 'tbb'
+  depends_on 'gtest'
+  depends_on 'numpy' => :python
   depends_on 'boost'
 
 

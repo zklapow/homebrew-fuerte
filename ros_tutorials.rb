@@ -2,17 +2,14 @@
 require 'formula'
 
 class RosTutorials < Formula
-  url 'git://github.com/wg-debs/ros_tutorials.git', {:using => :git, :tag => 'upstream/0.2.14'}
-  homepage 'http://ros.org/wiki/ros_tutorials'
-  version '0.2.14'
+  url 'git://github.com/wg-debs/ros_tutorials-release.git', {:using => :git, :tag => 'upstream/0.2.19'}
+  homepage 'http://www.ros.org/wiki/ros_tutorials'
+  version '0.2.19'
 
-  depends_on 'ros/fuerte/catkin' => :alt
-  depends_on 'ros/fuerte/roscpp_core' => :alt
-  depends_on 'ros/fuerte/ros_comm' => :alt
-  depends_on 'ros/fuerte/std_msgs' => :alt
+  depends_on 'zklapow/fuerte/langs' => :alt
   depends_on 'qt'
-  depends_on 'qt'
-  depends_on 'ros/fuerte/common_msgs' => :alt
+  depends_on 'zklapow/fuerte/ros_comm' => :alt
+  depends_on 'zklapow/fuerte/std_msgs' => :alt
 
 
 

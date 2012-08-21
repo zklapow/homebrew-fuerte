@@ -2,14 +2,11 @@
 require 'formula'
 
 class StdMsgs < Formula
-  url 'git://github.com/wg-debs/std_msgs.git', {:using => :git, :tag => 'upstream/0.4.6'}
+  url 'git://github.com/wg-debs/std_msgs-release.git', {:using => :git, :tag => 'upstream/0.4.10'}
   homepage 'http://www.ros.org/wiki/std_msgs'
-  version '0.4.6'
+  version '0.4.10'
 
-  depends_on 'ros/fuerte/roscpp_core' => :alt
-  depends_on 'ros/fuerte/langs' => :alt
-  depends_on 'ros/fuerte/genmsg' => :alt
-  depends_on 'ros/fuerte/catkin' => :alt
+  depends_on 'zklapow/fuerte/langs' => :alt
 
 
 
