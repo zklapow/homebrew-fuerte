@@ -70,6 +70,7 @@ special_installs['genlisp'] = \
 '''
 
 pipkey_to_importtest_map = {}
+pipkey_to_importtest_map['PyYAML'] = 'yaml'
 pipkey_to_importtest_map['empy'] = 'em'
 
 def generate_brew(stack_xml, repo_url, ros_distro):
