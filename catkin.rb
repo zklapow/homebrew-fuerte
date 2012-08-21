@@ -9,7 +9,7 @@ class Catkin < Formula
   depends_on 'cmake'
   depends_on 'gtest'
   depends_on 'argparse' => :python
-  depends_on 'EmPy' => :python
+  #depends_on 'EmPy' => :python
   depends_on 'nose' => :python
   depends_on 'rospkg' => :python
   depends_on 'setuptools' => :python
