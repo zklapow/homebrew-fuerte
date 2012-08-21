@@ -1,7 +1,7 @@
 
 require 'formula'
 
-class Langs-dev < Formula
+class LangsDev < Formula
   url 'git://github.com/wg-debs/langs-dev-release.git', {:using => :git, :tag => 'upstream/0.1.3'}
   homepage 'http://www.ros.org'
   version '0.1.3'
