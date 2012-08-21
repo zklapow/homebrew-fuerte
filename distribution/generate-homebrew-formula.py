@@ -36,7 +36,7 @@ def make_working(working_dir):
 
 def camelcase(input):
     temp = str(input)
-    temp.replace('-', '_')
+    temp = temp.replace('-', '_')
     return ''.join([str.capitalize(x) for x in temp.split('_')])
 
 def detect_scm_type(url):
