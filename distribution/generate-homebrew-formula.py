@@ -5,12 +5,7 @@ import os
 import sys
 
 from tempfile import mkdtemp
-
-try:
-    import yaml
-except ImportError:
-    print("Please install python-yaml", file=sys.stderr)
-    sys.exit(1)
+from xml.etree import ElementTree as ET
 
 try:
     import rosdep2.catkin_support
@@ -18,14 +13,21 @@ except ImportError:
     print("Please sudo pip install -U rosdep", file=sys.stderr)
     sys.exit(2)
 
-def parse_stack_yaml(yaml_path):
-    stack_yaml = yaml.load(open(yaml_path))
-    deps = stack_yaml['Depends']
-    if type(deps) == str:
-        stack_yaml['Depends'] = set([x.strip() for x in deps.split(',') if len(x.strip()) > 0])
-    else:
-        stack_yaml['Depends'] = set(deps)
-    return stack_yaml
+def parse_stack_xml(et):
+    ret = {}
+    for child in et:
+        last = None
+        if child.tag in ret.keys():
+            last = ret[child.tag]
+            if type(last) == list:
+                last.append(child.text)
+                ret[child.tag] = last
+            elif type(last) == str:
+                l = [last, child.text]
+                ret[child.tag] = l
+        else:
+            ret[child.tag] = child.text
+    return ret
 
 def make_working(working_dir):
     """Creates the working directory if it doesn't exist yet"""
@@ -42,11 +44,17 @@ def detect_scm_type(url):
     return 'git'
 
 def generate_deps(ros_distro, rosdep_keys):
+    if not rosdep_keys:
+        return None
+
+    if type(rosdep_keys) == str:
+        rosdep_keys = [rosdep_keys]
     deps = []
-    view = rosdep2.catkin_support.get_catkin_view(ros_distro, 'osx', 'lion')
+    view = rosdep2.catkin_support.get_catkin_view(ros_distro, 'osx', 'mountain')
     for rosdep_key in rosdep_keys:
-        installer_key, resolution = rosdep2.catkin_support.resolve_for_osx(rosdep_key, view)
-        deps.append((installer_key, resolution))
+        inst, rule = view.lookup(rosdep_key).get_rule_for_platform('osx', 'mountain', rosdep2.catkin_support.default_installers['osx'], rosdep2.catkin_support.APT_INSTALLER)
+        resolution = rosdep2.catkin_support.get_installer(inst).resolve(rule)
+        deps.append((inst, resolution))
     return deps
 
 special_installs = {}
@@ -62,10 +70,9 @@ special_installs['genlisp'] = \
 '''
 
 pipkey_to_importtest_map = {}
-pipkey_to_importtest_map['PyYAML'] = 'yaml'
 pipkey_to_importtest_map['empy'] = 'em'
 
-def generate_brew(stack_yaml, repo_url, ros_distro):
+def generate_brew(stack_xml, repo_url, ros_distro):
     # Homebrew Formula Template
     template = \
 '''
@@ -82,26 +89,26 @@ class %(formula_class_name)s < Formula
 end
 '''
     # Get the output file name
-    file_name = stack_yaml['Catkin-ProjectName']
+    file_name = stack_xml['name']
     # Build the template variables
     template_vars = {}
     template_vars['formula_class_name'] = camelcase(file_name)
     template_vars['url'] = repo_url
     template_vars['scm_type'] = detect_scm_type(repo_url)
     # TODO: Maybe the scm_tag should be more portable...
-    template_vars['scm_tag'] = 'upstream/'+stack_yaml['Version']
-    template_vars['homepage'] = stack_yaml['Homepage']
-    template_vars['version'] = stack_yaml['Version']
+    template_vars['scm_tag'] = 'upstream/'+stack_xml['version']
+    template_vars['homepage'] = stack_xml['url']
+    template_vars['version'] = stack_xml['version']
     # Generate a list of (installer_key, install_key) pairs for the deps using rosdep
-    deps = generate_deps(ros_distro, stack_yaml['Depends'])
+    if 'depends' in stack_xml.keys():
+        deps = generate_deps(ros_distro, stack_xml['depends'])
+    else:
+        deps = []
     depends_def = ""
     pip_requirements = ""
     for dep in deps:
         # Get a list of the resolutions
-        if 'packages' in dep[1]:
-            resolutions = dep[1]['packages']
-        else:
-            continue
+        resolutions = dep[1]
         installer = dep[0]
         # There could be more than one resolved
         for resolved in resolutions:
@@ -147,11 +154,12 @@ end
         pip_requirements_file.write(pip_requirements)
         pip_requirements_file.close()
 
-def main(ros_distro, yaml_path, repo_url):
-    stack_yaml = parse_stack_yaml(yaml_path)
+def main(ros_distro, xml_path, repo_url):
+    t = ET.parse(xml_path)
+    stack_xml = parse_stack_xml(t.getroot())
 
     try:
-        generate_brew(stack_yaml, repo_url, ros_distro)
+        generate_brew(stack_xml, repo_url, ros_distro)
     except rosdep2.catkin_support.ValidationFailed as e:
         print(e.args[0], file=sys.stderr)
         sys.exit(1)
@@ -172,6 +180,6 @@ for it in your sources.
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        print("Usage: generate-homebrew-formula <ros_distro> <path/to/stack.yaml> <repo_url>")
+        print("Usage: generate-homebrew-formula <ros_distro> <path/to/stack.xml> <repo_url>")
         sys.exit(4)
     main(sys.argv[1], sys.argv[2], sys.argv[3])

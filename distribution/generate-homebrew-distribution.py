@@ -116,10 +116,14 @@ def process_repo(repo, ros_distro, repos_dir, build_binary=False, redo=False):
         vcs_client.checkout(repo['url'])
     # Generate a Homebrew formula using the 'generate-homebrew-formula' command
     script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'generate-homebrew-formula.py')
-    stack_path = os.path.abspath(os.path.join(src_dir, 'stack.yaml'))
-    call(repo_dir, ['python', script_path, ros_distro, stack_path, repo['url']])
-    # If the call was successful, put a GENEREATED file in the directory
-    open(os.path.join(repo_dir, 'GENERATED'), 'w').close()
+    stack_path = os.path.abspath(os.path.join(src_dir, 'stack.xml'))
+    try:
+        call(repo_dir, ['python', script_path, ros_distro, stack_path, repo['url']])
+    except Exception as e:
+        print('Could not generate %s got exception %s'%(repo['name'], e))
+    else:
+        # If the call was successful, put a GENEREATED file in the directory
+        open(os.path.join(repo_dir, 'GENERATED'), 'w').close()
 
 def generate_variant(variant, ros_distro):
     pass
@@ -135,12 +139,13 @@ def process_repos(gbp_yaml, args):
     #  * (binary)Install pip dependencies
     #  * (binary)Install homebrew formula
     #  * (binary)Create a homebrew bottle
-    repos = gbp_yaml['gbp-repos']
+    repos = gbp_yaml['repositories']
     make_directory(os.path.join(args.working, 'repos'))
     make_directory(os.path.join(args.working, 'dist'))
     successes = []
     errors = {}
-    for repo in repos:
+    for name, repo in repos.iteritems():
+	repo['name'] = name
         try:
             repo_dir = os.path.join(args.working, 'repos')
             process_repo(repo, ros_distro, repo_dir, args.build_binary, args.redo)
