@@ -1,8 +1,7 @@
-
 require 'formula'
 
 class Ros < Formula
-  url 'git://github.com/wg-debs/ros-release.git', {:using => :git, :tag => 'upstream/1.8.10'}
+  url 'git://github.com/zklapow/ros-release.git', {:using => :git, :tag => 'upstream/1.8.10'}
   homepage 'http://www.ros.org/wiki/ROS'
   version '1.8.10'
 
